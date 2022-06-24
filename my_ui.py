@@ -14,86 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(548, 1400)
+        MainWindow.resize(743, 1141)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.box21 = QtWidgets.QPushButton(self.centralwidget)
-        self.box21.setGeometry(QtCore.QRect(160, 290, 51, 51))
-        self.box21.setStyleSheet("QPushButton{\n"
-"    border:none;\n"
-"    border-radius: 8px;\n"
-"    font: 14pt \"MV Boli\";\n"
-"    background-color:rgb(255, 189, 68);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    \n"
-"    background-color: rgb(225, 164, 60);\n"
-"}")
-        self.box21.setText("")
-        self.box21.setObjectName("box21")
-        self.box23 = QtWidgets.QPushButton(self.centralwidget)
-        self.box23.setGeometry(QtCore.QRect(340, 290, 51, 51))
-        self.box23.setStyleSheet("QPushButton{\n"
-"    border:none;\n"
-"    border-radius: 8px;\n"
-"    font: 14pt \"MV Boli\";\n"
-"    background-color:rgb(255, 189, 68);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    \n"
-"    background-color: rgb(225, 164, 60);\n"
-"}")
-        self.box23.setText("")
-        self.box23.setObjectName("box23")
-        self.box03 = QtWidgets.QPushButton(self.centralwidget)
-        self.box03.setGeometry(QtCore.QRect(340, 110, 51, 51))
-        self.box03.setStyleSheet("QPushButton{\n"
-"    border:none;\n"
-"    border-radius: 8px;\n"
-"    font: 14pt \"MV Boli\";\n"
-"    background-color:rgb(255, 189, 68);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    \n"
-"    background-color: rgb(225, 164, 60);\n"
-"}")
-        self.box03.setText("")
-        self.box03.setObjectName("box03")
-        self.box12 = QtWidgets.QPushButton(self.centralwidget)
-        self.box12.setGeometry(QtCore.QRect(250, 200, 51, 51))
-        self.box12.setStyleSheet("QPushButton {\n"
-"font: 14pt \"MV Boli\";\n"
-"    border: none;\n"
-"    border-radius: 8px;\n"
-"    background-color: rgb(0, 221, 85);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    \n"
-"    background-color: rgb(0, 191, 73);\n"
-"}")
-        self.box12.setText("")
-        self.box12.setObjectName("box12")
-        self.box01 = QtWidgets.QPushButton(self.centralwidget)
-        self.box01.setGeometry(QtCore.QRect(160, 110, 51, 51))
-        self.box01.setStyleSheet("QPushButton{\n"
-"    border:none;\n"
-"    border-radius: 8px;\n"
-"    font: 14pt \"MV Boli\";\n"
-"    background-color:rgb(255, 189, 68);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    \n"
-"    background-color: rgb(225, 164, 60);\n"
-"}")
-        self.box01.setText("")
-        self.box01.setObjectName("box01")
         self.window = QtWidgets.QFrame(self.centralwidget)
-        self.window.setGeometry(QtCore.QRect(20, 20, 511, 371))
+        self.window.setGeometry(QtCore.QRect(10, 20, 691, 471))
         self.window.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -115,7 +40,7 @@ class Ui_MainWindow(object):
         self.easter_egg.setText("")
         self.easter_egg.setObjectName("easter_egg")
         self.title_bar = QtWidgets.QLabel(self.window)
-        self.title_bar.setGeometry(QtCore.QRect(0, 0, 511, 41))
+        self.title_bar.setGeometry(QtCore.QRect(0, 0, 691, 41))
         self.title_bar.setStyleSheet("QLabel {\n"
 "    background-color: rgb(242, 250, 248);\n"
 "    border-radius: 10px;\n"
@@ -143,28 +68,6 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.btn_close.setAutoDefault(False)
         self.btn_close.setObjectName("btn_close")
-        self.btn_maximize = QtWidgets.QPushButton(self.window)
-        self.btn_maximize.setGeometry(QtCore.QRect(74, 12, 16, 16))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_maximize.sizePolicy().hasHeightForWidth())
-        self.btn_maximize.setSizePolicy(sizePolicy)
-        self.btn_maximize.setStyleSheet("QPushButton {\n"
-"    border: none;\n"
-"    border-radius: 8px;\n"
-"    background-color: rgb(0, 221, 85);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(0, 191, 73);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"    background-color: rgb(218, 218, 218);\n"
-"}")
-        self.btn_maximize.setText("")
-        self.btn_maximize.setAutoDefault(False)
-        self.btn_maximize.setObjectName("btn_maximize")
         self.btn_minimize = QtWidgets.QPushButton(self.window)
         self.btn_minimize.setGeometry(QtCore.QRect(42, 12, 16, 16))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -190,77 +93,99 @@ class Ui_MainWindow(object):
         self.btn_minimize.setAutoDefault(False)
         self.btn_minimize.setObjectName("btn_minimize")
         self.remaining_items = QtWidgets.QPushButton(self.window)
-        self.remaining_items.setGeometry(QtCore.QRect(10, 240, 101, 91))
+        self.remaining_items.setGeometry(QtCore.QRect(20, 330, 121, 91))
         self.remaining_items.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 5px;\n"
-"    font: 11pt \"Cascadia Code\";\n"
+"    font: 10pt \"Cascadia Code\";\n"
 "    background-color: rgb(116, 195, 255);\n"
 "    color: rgb(243, 243, 243);\n"
 "}")
         self.remaining_items.setObjectName("remaining_items")
         self.stats = QtWidgets.QPushButton(self.window)
-        self.stats.setGeometry(QtCore.QRect(150, 100, 211, 91))
+        self.stats.setGeometry(QtCore.QRect(210, 110, 271, 181))
         self.stats.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 8px;\n"
-"    font: 10pt \"Cambria\";\n"
-"    background-color:rgb(255, 189, 68);\n"
+"    font: 16pt \"Dongle\";\n"
+"    \n"
+"    background-color: rgb(250, 250, 250);\n"
 "}\n"
 "")
         self.stats.setObjectName("stats")
         self.timer = QtWidgets.QPushButton(self.window)
-        self.timer.setGeometry(QtCore.QRect(400, 270, 91, 51))
+        self.timer.setGeometry(QtCore.QRect(550, 340, 121, 71))
         self.timer.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 15px;\n"
 "    font: 14pt \"Modern No. 20\";\n"
-"    background-color: rgb(124, 166, 255);\n"
+"    color: rgb(56, 56, 56);\n"
+"    background-color: rgb(172, 224, 255);\n"
 "}\n"
 "QPushButton::hover{\n"
-"background-color: rgb(112, 152, 231);\n"
+"background-color: rgb(152, 198, 225);\n"
 "}")
         self.timer.setObjectName("timer")
         self.item = QtWidgets.QGraphicsView(self.window)
-        self.item.setGeometry(QtCore.QRect(120, 210, 271, 151))
+        self.item.setGeometry(QtCore.QRect(160, 300, 371, 151))
         self.item.setStyleSheet("background-color: rgb(243, 255, 235);")
         self.item.setObjectName("item")
         self.box11 = QtWidgets.QPushButton(self.window)
-        self.box11.setGeometry(QtCore.QRect(150, 50, 211, 41))
+        self.box11.setGeometry(QtCore.QRect(240, 50, 211, 51))
         self.box11.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 8px;\n"
-"    font: 14pt \"MV Boli\";    \n"
-"    background-color:rgb(255, 189, 68);\n"
+"    font: 14pt \"Cascadia Code\";    \n"
 "}")
         self.box11.setObjectName("box11")
         self.recycle = QtWidgets.QPushButton(self.window)
-        self.recycle.setGeometry(QtCore.QRect(380, 60, 111, 121))
+        self.recycle.setGeometry(QtCore.QRect(500, 110, 171, 161))
         self.recycle.setStyleSheet("QPushButton {\n"
 "    border-radius: 3px;\n"
 "    background-color: rgb(239, 255, 246);\n"
 "    color: #224168;\n"
 "    padding: 2px;\n"
 "    padding-bottom: 5px;    \n"
-"    font: 25 22pt \"Cascadia Code Light\";\n"
+"    font: 25 28pt \"Cascadia Code Light\";\n"
 "    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    background-color: rgb(213, 227, 219);\n"
 "}\n"
 "")
         self.recycle.setObjectName("recycle")
         self.trashcan = QtWidgets.QPushButton(self.window)
-        self.trashcan.setGeometry(QtCore.QRect(20, 60, 111, 121))
+        self.trashcan.setGeometry(QtCore.QRect(20, 110, 171, 161))
         self.trashcan.setStyleSheet("QPushButton {\n"
 "    border-radius: 3px;\n"
 "    background-color: rgb(225, 232, 232);\n"
 "    color: #224168;\n"
 "    padding: 2px;\n"
 "    padding-bottom: 5px;    \n"
-"    font: 25 22pt \"Cascadia Code Light\";\n"
+"    font: 25 25pt \"Cascadia Code Light\";\n"
 "    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    background-color: rgb(197, 202, 202);\n"
 "}")
         self.trashcan.setObjectName("trashcan")
+        self.btn_disabled_3 = QtWidgets.QPushButton(self.window)
+        self.btn_disabled_3.setGeometry(QtCore.QRect(74, 12, 16, 16))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_disabled_3.sizePolicy().hasHeightForWidth())
+        self.btn_disabled_3.setSizePolicy(sizePolicy)
+        self.btn_disabled_3.setStyleSheet("QPushButton {\n"
+"    border: none;\n"
+"    border-radius: 8px;\n"
+"    background-color: rgb(218, 218, 218);\n"
+"}")
+        self.btn_disabled_3.setText("")
+        self.btn_disabled_3.setAutoDefault(False)
+        self.btn_disabled_3.setObjectName("btn_disabled_3")
         self.popup = QtWidgets.QFrame(self.centralwidget)
-        self.popup.setGeometry(QtCore.QRect(20, 430, 511, 321))
+        self.popup.setGeometry(QtCore.QRect(20, 510, 671, 381))
         self.popup.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -268,21 +193,8 @@ class Ui_MainWindow(object):
         self.popup.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.popup.setFrameShadow(QtWidgets.QFrame.Raised)
         self.popup.setObjectName("popup")
-        self.easter_egg_2 = QtWidgets.QPushButton(self.popup)
-        self.easter_egg_2.setGeometry(QtCore.QRect(0, 530, 21, 21))
-        self.easter_egg_2.setStyleSheet("QPushButton{\n"
-"    border:none;\n"
-"    border-radius: 8px;\n"
-"    font: 15pt \"Onyx\";\n"
-"    text-align:center;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color: rgb(231, 231, 231);\n"
-"}")
-        self.easter_egg_2.setText("")
-        self.easter_egg_2.setObjectName("easter_egg_2")
         self.help_bar = QtWidgets.QLabel(self.popup)
-        self.help_bar.setGeometry(QtCore.QRect(0, 0, 511, 41))
+        self.help_bar.setGeometry(QtCore.QRect(0, 0, 671, 41))
         self.help_bar.setStyleSheet("QLabel {\n"
 "    background-color: rgb(242, 250, 248);\n"
 "    border-radius: 10px;\n"
@@ -341,26 +253,26 @@ class Ui_MainWindow(object):
         self.btn_minimize_2.setAutoDefault(False)
         self.btn_minimize_2.setObjectName("btn_minimize_2")
         self.text = QtWidgets.QPushButton(self.popup)
-        self.text.setGeometry(QtCore.QRect(0, 50, 511, 51))
+        self.text.setGeometry(QtCore.QRect(0, 60, 671, 51))
         self.text.setStyleSheet("QPushButton{\n"
-"    font: 25pt \"Algerian\";\n"
+"    font: 22pt \"Algerian\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
         self.text.setObjectName("text")
         self.text_2 = QtWidgets.QPushButton(self.popup)
-        self.text_2.setGeometry(QtCore.QRect(0, 110, 511, 101))
+        self.text_2.setGeometry(QtCore.QRect(0, 120, 671, 101))
         self.text_2.setStyleSheet("QPushButton{\n"
 "    \n"
-"    font: 10.5pt \"Nirmala UI\";\n"
+"    font: 8pt \"Nirmala UI\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
         self.text_2.setObjectName("text_2")
         self.text_5 = QtWidgets.QPushButton(self.popup)
-        self.text_5.setGeometry(QtCore.QRect(20, 250, 91, 51))
+        self.text_5.setGeometry(QtCore.QRect(50, 290, 91, 51))
         self.text_5.setStyleSheet("QPushButton {\n"
 "    border-radius: 3px;\n"
 "    background-color: rgb(225, 232, 232);\n"
@@ -369,20 +281,23 @@ class Ui_MainWindow(object):
 "    padding-bottom: 5px;    \n"
 "    font: 25 14pt \"Cascadia Code Light\";\n"
 "    qproperty-alignment: Left;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    background-color: rgb(197, 202, 202);\n"
 "}")
         self.text_5.setObjectName("text_5")
         self.text_3 = QtWidgets.QPushButton(self.popup)
-        self.text_3.setGeometry(QtCore.QRect(10, 230, 91, 31))
+        self.text_3.setGeometry(QtCore.QRect(50, 250, 91, 31))
         self.text_3.setStyleSheet("QPushButton{\n"
 "    \n"
-"    font: 8.5pt \"Nirmala UI\";\n"
+"    font: 7.5pt \"Nirmala UI\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
         self.text_3.setObjectName("text_3")
         self.text_15 = QtWidgets.QPushButton(self.popup)
-        self.text_15.setGeometry(QtCore.QRect(140, 250, 91, 51))
+        self.text_15.setGeometry(QtCore.QRect(170, 290, 91, 51))
         self.text_15.setStyleSheet("QPushButton {\n"
 "    border-radius: 3px;\n"
 "    background-color: rgb(239, 255, 246);\n"
@@ -392,42 +307,87 @@ class Ui_MainWindow(object):
 "    font: 25 14pt \"Cascadia Code Light\";\n"
 "    qproperty-alignment: AlignCenter;\n"
 "}\n"
+"QPushButton::hover{\n"
+"    background-color: rgb(213, 227, 219);\n"
+"}\n"
+"\n"
 "")
         self.text_15.setObjectName("text_15")
         self.text_9 = QtWidgets.QPushButton(self.popup)
-        self.text_9.setGeometry(QtCore.QRect(260, 250, 91, 51))
+        self.text_9.setGeometry(QtCore.QRect(290, 290, 91, 51))
         self.text_9.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 5px;\n"
-"    font: 10pt \"Cascadia Code\";\n"
+"    font: 8pt \"Cascadia Code\";\n"
 "    background-color: rgb(116, 195, 255);\n"
 "    color: rgb(243, 243, 243);\n"
 "}")
         self.text_9.setObjectName("text_9")
         self.text_6 = QtWidgets.QPushButton(self.popup)
-        self.text_6.setGeometry(QtCore.QRect(240, 220, 101, 41))
+        self.text_6.setGeometry(QtCore.QRect(290, 240, 91, 41))
         self.text_6.setStyleSheet("QPushButton{\n"
 "    \n"
-"    font: 8pt \"Nirmala UI\";\n"
+"    font: 7.5pt \"Nirmala UI\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
         self.text_6.setObjectName("text_6")
-        self.text_103 = QtWidgets.QPushButton(self.popup)
-        self.text_103.setGeometry(QtCore.QRect(390, 250, 91, 51))
-        self.text_103.setStyleSheet("QPushButton{\n"
+        self.text_104 = QtWidgets.QPushButton(self.popup)
+        self.text_104.setGeometry(QtCore.QRect(410, 290, 91, 51))
+        self.text_104.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 3px;\n"
-"    font: 12pt \"Modern No. 20\";\n"
-"    background-color: rgb(124, 166, 255);\n"
+"    font: 10pt \"Modern No. 20\";\n"
+"    color: rgb(56, 56, 56);\n"
+"    background-color: rgb(172, 224, 255);\n"
 "}\n"
 "QPushButton::hover{\n"
-"background-color: rgb(112, 152, 231);\n"
+"background-color: rgb(152, 198, 225);\n"
 "}")
-        self.text_103.setObjectName("text_103")
+        self.text_104.setObjectName("text_104")
+        self.text_10 = QtWidgets.QPushButton(self.popup)
+        self.text_10.setGeometry(QtCore.QRect(170, 250, 91, 31))
+        self.text_10.setStyleSheet("QPushButton{\n"
+"    \n"
+"    font: 7.5pt \"Nirmala UI\";\n"
+"    border:none;\n"
+"    border-radius: 8px;    \n"
+"    background-color: #f7feff;\n"
+"}")
+        self.text_10.setObjectName("text_10")
+        self.text_13 = QtWidgets.QPushButton(self.popup)
+        self.text_13.setGeometry(QtCore.QRect(530, 290, 91, 51))
+        self.text_13.setStyleSheet("QPushButton{\n"
+"    border:none;\n"
+"    border-radius: 3px;\n"
+"    font: 16pt \"Dongle\";\n"
+"    background-color: rgb(250, 250, 250);\n"
+"}\n"
+"")
+        self.text_13.setObjectName("text_13")
+        self.text_12 = QtWidgets.QPushButton(self.popup)
+        self.text_12.setGeometry(QtCore.QRect(530, 250, 91, 31))
+        self.text_12.setStyleSheet("QPushButton{\n"
+"    \n"
+"    font: 7.5pt \"Nirmala UI\";\n"
+"    border:none;\n"
+"    border-radius: 8px;    \n"
+"    background-color: #f7feff;\n"
+"}")
+        self.text_12.setObjectName("text_12")
+        self.text_7 = QtWidgets.QPushButton(self.popup)
+        self.text_7.setGeometry(QtCore.QRect(410, 240, 91, 41))
+        self.text_7.setStyleSheet("QPushButton{\n"
+"    \n"
+"    font: 7.5pt \"Nirmala UI\";\n"
+"    border:none;\n"
+"    border-radius: 8px;    \n"
+"    background-color: #f7feff;\n"
+"}")
+        self.text_7.setObjectName("text_7")
         self.popup_2 = QtWidgets.QFrame(self.centralwidget)
-        self.popup_2.setGeometry(QtCore.QRect(20, 790, 511, 231))
+        self.popup_2.setGeometry(QtCore.QRect(10, 910, 511, 231))
         self.popup_2.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -459,14 +419,14 @@ class Ui_MainWindow(object):
 "    font: 12pt \"Cascadia Code\";\n"
 "}")
         self.help_bar_2.setObjectName("help_bar_2")
-        self.btn_close_popup_2 = QtWidgets.QPushButton(self.popup_2)
-        self.btn_close_popup_2.setGeometry(QtCore.QRect(10, 12, 16, 16))
+        self.btn_close_note = QtWidgets.QPushButton(self.popup_2)
+        self.btn_close_note.setGeometry(QtCore.QRect(10, 12, 16, 16))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_close_popup_2.sizePolicy().hasHeightForWidth())
-        self.btn_close_popup_2.setSizePolicy(sizePolicy)
-        self.btn_close_popup_2.setStyleSheet("QPushButton{\n"
+        sizePolicy.setHeightForWidth(self.btn_close_note.sizePolicy().hasHeightForWidth())
+        self.btn_close_note.setSizePolicy(sizePolicy)
+        self.btn_close_note.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 8px;\n"
 "    background-color: rgb(255, 96, 92);\n"
@@ -474,9 +434,9 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "    background-color: rgb(221, 82, 80);\n"
 "}")
-        self.btn_close_popup_2.setText("")
-        self.btn_close_popup_2.setAutoDefault(False)
-        self.btn_close_popup_2.setObjectName("btn_close_popup_2")
+        self.btn_close_note.setText("")
+        self.btn_close_note.setAutoDefault(False)
+        self.btn_close_note.setObjectName("btn_close_note")
         self.btn_disabled_2 = QtWidgets.QPushButton(self.popup_2)
         self.btn_disabled_2.setGeometry(QtCore.QRect(74, 12, 16, 16))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -508,35 +468,15 @@ class Ui_MainWindow(object):
         self.btn_minimize_3.setAutoDefault(False)
         self.btn_minimize_3.setObjectName("btn_minimize_3")
         self.text_8 = QtWidgets.QPushButton(self.popup_2)
-        self.text_8.setGeometry(QtCore.QRect(0, 40, 511, 191))
+        self.text_8.setGeometry(QtCore.QRect(0, 50, 511, 171))
         self.text_8.setStyleSheet("QPushButton{\n"
 "    \n"
-"    font: 10.5pt \"Nirmala UI\";\n"
+"    font: 9.5pt \"Nirmala UI\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
         self.text_8.setObjectName("text_8")
-        self.text_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.text_4.setGeometry(QtCore.QRect(150, 660, 91, 31))
-        self.text_4.setStyleSheet("QPushButton{\n"
-"    \n"
-"    font: 8.5pt \"Nirmala UI\";\n"
-"    border:none;\n"
-"    border-radius: 8px;    \n"
-"    background-color: #f7feff;\n"
-"}")
-        self.text_4.setObjectName("text_4")
-        self.text_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.text_7.setGeometry(QtCore.QRect(400, 660, 91, 31))
-        self.text_7.setStyleSheet("QPushButton{\n"
-"    \n"
-"    font: 8pt \"Nirmala UI\";\n"
-"    border:none;\n"
-"    border-radius: 8px;    \n"
-"    background-color: #f7feff;\n"
-"}")
-        self.text_7.setObjectName("text_7")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -547,7 +487,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.title_bar.setText(_translate("MainWindow", "To Trash Or Not To Trash"))
         self.remaining_items.setText(_translate("MainWindow", "Remaining\n"
-"\n"
 "##"))
         self.stats.setText(_translate("MainWindow", "Round:\n"
 "Correct:\n"
@@ -560,21 +499,22 @@ class Ui_MainWindow(object):
         self.trashcan.setText(_translate("MainWindow", "🗑"))
         self.help_bar.setText(_translate("MainWindow", "Welcome"))
         self.text.setText(_translate("MainWindow", "To Trash Or Not To Trash"))
-        self.text_2.setText(_translate("MainWindow", "Welcome! The goal of this game is for you to decide whether to throw an item in\n"
-"the trash or recycle it. There will be multiple rounds where you will be times to\n"
-"throw away as many items as you are able to. If you finish before time is called,\n"
-"you will recieve bonus points. But be wary of your accuracy,\n"
-"for it will affect your final score..."))
+        self.text_2.setText(_translate("MainWindow", "Welcome. In this game, you decide whether to throw an item in the trash or recycle it.\n"
+"There will be multiple timed rounds where you will throw away as many items as possible.\n"
+"If you finish before time is called, you will recieve bonus points.\n"
+"But be wary of your accuracy, for it will affect your final score..."))
         self.text_5.setText(_translate("MainWindow", "🗑"))
         self.text_3.setText(_translate("MainWindow", "Trashcan"))
         self.text_15.setText(_translate("MainWindow", "♻"))
         self.text_9.setText(_translate("MainWindow", "Remaining"))
-        self.text_6.setText(_translate("MainWindow", "Items Remaing\n"
-"In Round"))
-        self.text_103.setText(_translate("MainWindow", "Begin?"))
+        self.text_6.setText(_translate("MainWindow", "Remaining\n"
+"Items"))
+        self.text_104.setText(_translate("MainWindow", "Begin?"))
+        self.text_10.setText(_translate("MainWindow", "Recycle Bin"))
+        self.text_13.setText(_translate("MainWindow", "Score"))
+        self.text_12.setText(_translate("MainWindow", "User Stats"))
+        self.text_7.setText(_translate("MainWindow", "Begin Game\n"
+"Timer"))
         self.help_bar_2.setText(_translate("MainWindow", "Note"))
         self.text_8.setText(_translate("MainWindow", "If you are seeing this, then something went wrong. Please report this bug as\n"
 "Error 156. Thank you for your support."))
-        self.text_4.setText(_translate("MainWindow", "Recycle Bin"))
-        self.text_7.setText(_translate("MainWindow", "Begins Round\n"
-"And Timer"))
