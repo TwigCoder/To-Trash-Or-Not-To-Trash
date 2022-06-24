@@ -1,16 +1,85 @@
-# This is a sample Python script.
+# Imports
+import PyQt5
+import sys
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# PyQt5 Imports
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QMainWindow
+from my_ui import Ui_MainWindow
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Runnable Application GUI
+class Window(QMainWindow):
+
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.title_bar.isPressed = False
+
+        # Hide Title Bar
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # Button Functions
+        self.ui.btn_close.clicked.connect(self.exit_app)
+        self.ui.btn_minimize.clicked.connect(self.min_app)
+        self.ui.btn_maximize.clicked.connect(self.max_app)
+
+        # Show Window
+        self.setMouseTracking(True)
+        self.show()
+
+    # Title Bar Buttons #
+
+    def exit_app(self):
+        sys.exit()
+
+    def min_app(self):
+        self.showMinimized()
+        print("Passed: App successfully minimized.")
+
+    def max_app(self):
+        if not self.isMaximized():
+            self.geometry = self.saveGeometry()
+            self.showMaximized()
+
+        else:
+            self.restoreGeometry(self.geometry)
+
+    ##
+
+    # Movable Title Bar #
+
+    def mousePressEvent(self, event):
+
+        self.ui.title_bar.isPressed = True
+        self.startPos = event.globalPos()
+        return QWidget().mousePressEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        self.ui.title_bar.isPressed = False
+        return QWidget().mouseReleaseEvent(event)
+
+    def mouseMoveEvent(self, event):
+        if self.ui.title_bar.isPressed:
+
+            if self.isMaximized:
+                self.showNormal()
+
+            move_pos = event.globalPos() - self.startPos
+            self.startPos = event.globalPos()
+            self.move(self.pos() + move_pos)
+
+        return QWidget().mouseMoveEvent(event)
+
+    ##
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = Window()
+    app.exec_()
