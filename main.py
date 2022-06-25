@@ -1,5 +1,6 @@
 # Imports
 from tokenize import Triple
+import math
 import PyQt5
 import sys
 import random
@@ -75,7 +76,7 @@ class Window(QMainWindow):
     def begin_app(self):
         self.ui.popup.hide()
         self.ui.window.show()
-        self.ui.text_1337.setText(f"Welcome to the game. To begin, close this popup (red button) and click begin. Either an image or a\ndescription will popup in the green box. You are to decide if that item should be trashed or\nrecycled. See the Welcome Page for which button to press (hint: buttons turn darker when you hover\nover them). All wrong items will award 1 negative point, and all correct answers bestow 4 points.\nAccuracy matters: the final score of the round is the total score you recieved times the accuracy\n(a percentage). When something is wrong, this popup will be back with an explanation of what\nhappened. Have fun, and begin Round {self.round}.")  # Max 100 chars per line.
+        self.ui.text_1337.setText(f"Hello there! To begin the game, close this popup (red button) and click begin. The green box will\ncontain a description of an item. Your goal is to decide whether to recycle or trash it! If you get it\nwrong, a popup will appear, showing the correct answer. Wrong answers are -1 points, right\nanswers being 4 points. The final score will be the points you recieved times the accuracy (of the\nround). You will play for five rounds. Have fun, and begin Round {self.round}.")  # Max 100 chars per line.
         self.ui.popup_2.show()
         
     def hide_notes(self):
@@ -192,11 +193,11 @@ class Window(QMainWindow):
                 self.round_points += 4
                 right_answers += 1
             
-            # Accuracy
+        # Accuracy
         accuracy = right_answers / (right_answers + wrong_answers)
         
         # Decide Next Round
-        if accuracy >= 0.5:
+        if accuracy >= 0.6:
             
             # Proceed
             if current_round != 5:
@@ -206,18 +207,18 @@ class Window(QMainWindow):
             # Restart
             else:
                 self.round = 1
-                self.ui.text_1337.setText("Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
+                self.ui.text_1337.setText("🎉 Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
             
-            self.total_points += (self.round_points * accuracy)
+            self.total_points += round((self.round_points * accuracy))
             self.round_points = 0
             self.ui.stats.setText(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
             
         # Failed Round
         else:
-            self.ui.text_1337.setText(f"Your accuracy was {accuracy * 100}%. You need at least 45%. The round will be restarted. Good luck.")
+            self.ui.text_1337.setText(f"Your accuracy was {round(accuracy, 2) * 100}%. You need at least 60%.\nThe round will be restarted. Good luck.")
            
         # Show Popup for Information 
-        self.ui.item_display.setText(" ")
+        self.ui.item_display.setText(f"Round {self.round}")
         self.ui.popup_2.show()
             
     ##

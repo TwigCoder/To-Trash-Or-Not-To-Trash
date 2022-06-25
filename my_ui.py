@@ -197,7 +197,7 @@ class Ui_MainWindow(object):
         self.item_display.setGeometry(QtCore.QRect(160, 300, 371, 151))
         self.item_display.setStyleSheet("background-color: rgb(243, 255, 235);\n"
 "qproperty-alignment: AlignCenter;\n"
-"font: 8pt \"Leelawadee UI\";")
+"font: 15pt \"Dongle\";")
         self.item_display.setObjectName("item_display")
         self.popup = QtWidgets.QFrame(self.centralwidget)
         self.popup.setGeometry(QtCore.QRect(110, 70, 671, 381))
@@ -402,7 +402,7 @@ class Ui_MainWindow(object):
 "}")
         self.text_7.setObjectName("text_7")
         self.popup_2 = QtWidgets.QFrame(self.centralwidget)
-        self.popup_2.setGeometry(QtCore.QRect(10, 60, 871, 331))
+        self.popup_2.setGeometry(QtCore.QRect(10, 60, 871, 311))
         self.popup_2.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -483,10 +483,10 @@ class Ui_MainWindow(object):
         self.btn_minimize_3.setAutoDefault(False)
         self.btn_minimize_3.setObjectName("btn_minimize_3")
         self.text_1337 = QtWidgets.QPushButton(self.popup_2)
-        self.text_1337.setGeometry(QtCore.QRect(0, 50, 871, 271))
+        self.text_1337.setGeometry(QtCore.QRect(0, 50, 871, 251))
         self.text_1337.setStyleSheet("QPushButton{\n"
 "    \n"
-"    font: 9.5pt \"Nirmala UI\";\n"
+"    font: 15pt \"Dongle\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
@@ -513,7 +513,7 @@ class Ui_MainWindow(object):
         self.recycle.setText(_translate("MainWindow", "♻"))
         self.trashcan.setText(_translate("MainWindow", "🗑"))
         self.help_but.setText(_translate("MainWindow", "?"))
-        self.item_display.setText(_translate("MainWindow", "TextLabel"))
+        self.item_display.setText(_translate("MainWindow", "Round 1"))
         self.help_bar.setText(_translate("MainWindow", "Welcome"))
         self.text.setText(_translate("MainWindow", "To Trash Or Not To Trash"))
         self.text_2.setText(_translate("MainWindow", "Welcome. In this game, you decide whether to throw an item in the trash or recycle it.\n"

@@ -368,10 +368,10 @@ QPushButton::hover{
      <property name="styleSheet">
       <string notr="true">background-color: rgb(243, 255, 235);
 qproperty-alignment: AlignCenter;
-font: 8pt &quot;Leelawadee UI&quot;;</string>
+font: 15pt &quot;Dongle&quot;;</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>Round 1</string>
      </property>
     </widget>
    </widget>
@@ -799,7 +799,7 @@ Timer</string>
       <x>10</x>
       <y>60</y>
       <width>871</width>
-      <height>331</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -957,13 +957,13 @@ QPushButton:hover{
        <x>0</x>
        <y>50</y>
        <width>871</width>
-       <height>271</height>
+       <height>251</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton{
 	
-	font: 9.5pt &quot;Nirmala UI&quot;;
+	font: 15pt &quot;Dongle&quot;;
 	border:none;
 	border-radius: 8px;	
 	background-color: #f7feff;
