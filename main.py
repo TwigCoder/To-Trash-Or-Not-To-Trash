@@ -176,8 +176,8 @@ class Window(QMainWindow):
             self.ui.item_display.setText(items[question])
             
             # Wait for answer to be clicked.
-            while self.trash == False and self.recycle == False:
-                pass
+            #while self.trash == False and self.recycle == False:
+            #    pass
                 
             # Check answer.
             if self.trash == True:
@@ -193,7 +193,7 @@ class Window(QMainWindow):
                 right_answers += 1
             
             # Accuracy
-            accuracy = right_answers / (right_answers + wrong_answers)
+        accuracy = right_answers / (right_answers + wrong_answers)
         
         # Decide Next Round
         if accuracy >= 0.5:
@@ -201,23 +201,24 @@ class Window(QMainWindow):
             # Proceed
             if current_round != 5:
                 self.round += 1
-                self.ui.popup_2.setText("Congratulations! You passed. Welcome to the next round.")
+                self.ui.text_1337.setText("Congratulations! You passed. Welcome to the next round.")
             
             # Restart
             else:
                 self.round = 1
-                self.ui.popup_2.setText("Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
+                self.ui.text_1337.setText("Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
             
             self.total_points += (self.round_points * accuracy)
             self.round_points = 0
-            self.ui.stats.settext(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
+            self.ui.stats.setText(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
             
         # Failed Round
         else:
-            self.ui.popup_2.setText(f"Your accuracy was {accuracy * 100}%. You need at least 45%. The round will be restarted. Good luck.")
+            self.ui.text_1337.setText(f"Your accuracy was {accuracy * 100}%. You need at least 45%. The round will be restarted. Good luck.")
            
         # Show Popup for Information 
-        self.ui.popup_2.show()  
+        self.ui.item_display.setText(" ")
+        self.ui.popup_2.show()
             
     ##
 
