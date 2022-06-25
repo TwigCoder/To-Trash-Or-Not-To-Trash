@@ -184,6 +184,19 @@ class Ui_MainWindow(object):
         self.btn_disabled_3.setText("")
         self.btn_disabled_3.setAutoDefault(False)
         self.btn_disabled_3.setObjectName("btn_disabled_3")
+        self.help_but = QtWidgets.QPushButton(self.window)
+        self.help_but.setGeometry(QtCore.QRect(640, 50, 41, 31))
+        self.help_but.setStyleSheet("QPushButton {\n"
+"    border-radius: 3px;\n"
+"    background-color: rgb(225, 232, 232);\n"
+"    color: #224168;\n"
+"    font: 12pt \"MS UI Gothic\";\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    background-color: rgb(197, 202, 202);\n"
+"}")
+        self.help_but.setObjectName("help_but")
         self.popup = QtWidgets.QFrame(self.centralwidget)
         self.popup.setGeometry(QtCore.QRect(20, 510, 671, 381))
         self.popup.setStyleSheet("QFrame {\n"
@@ -497,6 +510,7 @@ class Ui_MainWindow(object):
         self.box11.setText(_translate("MainWindow", "Stats"))
         self.recycle.setText(_translate("MainWindow", "♻"))
         self.trashcan.setText(_translate("MainWindow", "🗑"))
+        self.help_but.setText(_translate("MainWindow", "?"))
         self.help_bar.setText(_translate("MainWindow", "Welcome"))
         self.text.setText(_translate("MainWindow", "To Trash Or Not To Trash"))
         self.text_2.setText(_translate("MainWindow", "Welcome. In this game, you decide whether to throw an item in the trash or recycle it.\n"

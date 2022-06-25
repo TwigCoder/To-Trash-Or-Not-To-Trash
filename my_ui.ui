@@ -344,6 +344,31 @@ QPushButton::hover{
       <bool>false</bool>
      </property>
     </widget>
+    <widget class="QPushButton" name="help_but">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>50</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	border-radius: 3px;
+	background-color: rgb(225, 232, 232);
+	color: #224168;
+	font: 12pt &quot;MS UI Gothic&quot;;
+	qproperty-alignment: AlignCenter;
+}
+QPushButton::hover{
+	background-color: rgb(197, 202, 202);
+}</string>
+     </property>
+     <property name="text">
+      <string>?</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="popup">
     <property name="geometry">

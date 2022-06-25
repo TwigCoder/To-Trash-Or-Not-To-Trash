@@ -30,6 +30,7 @@ class Window(QMainWindow):
         # self.ui.btn_maximize.clicked.connect(self.max_app)
         self.ui.btn_close_popup.clicked.connect(self.begin_app)
         self.ui.text_104.clicked.connect(self.begin_app)
+        self.ui.help_but.clicked.connect(self.return_welcome)
 
         # Show Window
         self.setMouseTracking(True)
@@ -50,6 +51,14 @@ class Window(QMainWindow):
     def begin_app(self):
         self.ui.popup.hide()
         self.ui.window.show()
+        
+    def hide_notes(self):
+        self.ui.popup_2.hide()
+        self.ui.window.show()
+        
+    def return_welcome(self):
+        self.ui.window.hide()
+        self.ui.popup.show()
 
     #def max_app(self):
     #    if not self.isMaximized():
