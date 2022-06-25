@@ -202,7 +202,7 @@ Accuracy:
 Score:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="timer">
+    <widget class="QPushButton" name="timer_btn">
      <property name="geometry">
       <rect>
        <x>550</x>
@@ -225,19 +225,6 @@ background-color: rgb(152, 198, 225);
      </property>
      <property name="text">
       <string>Begin?</string>
-     </property>
-    </widget>
-    <widget class="QGraphicsView" name="item">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>300</y>
-       <width>371</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(243, 255, 235);</string>
      </property>
     </widget>
     <widget class="QPushButton" name="box11">
@@ -367,6 +354,24 @@ QPushButton::hover{
      </property>
      <property name="text">
       <string>?</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="item_display">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>300</y>
+       <width>371</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(243, 255, 235);
+qproperty-alignment: AlignCenter;
+font: 8pt &quot;Leelawadee UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </widget>

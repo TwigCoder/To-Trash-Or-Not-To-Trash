@@ -1,6 +1,10 @@
 # Imports
+from tokenize import Triple
 import PyQt5
 import sys
+import random
+import multiprocessing
+from multiprocessing import Process
 
 # PyQt5 Imports
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -8,6 +12,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtCore import QThread, QThreadPool, QRunnable
 from my_ui import Ui_MainWindow
 
 
@@ -25,12 +30,14 @@ class Window(QMainWindow):
         self.total_points = 0
         self.round_points = 0  # Remember to reinitialize to 0 per round.
         self.round = 1
+        self.trash = False
+        self.recycle = False
+        self.continue_on = False
         
         # Rounds dictionary (each round will have own, pairing being (image / desc., why trash / recycle))
-        self.round_1 = {
-            "1": None,
-            "2": None
-        }
+        self.round_1 = [["item1", "trash", "reasoning"],
+                        ["item2", "recycle", "reasoning_2"],
+                        ["item3", "trash", "reasoning"]]
 
         # Hide Title Bar
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -44,6 +51,9 @@ class Window(QMainWindow):
         self.ui.text_104.clicked.connect(self.begin_app)
         self.ui.btn_close_note.clicked.connect(self.hide_notes)
         self.ui.help_but.clicked.connect(self.return_welcome)
+        self.ui.timer_btn.clicked.connect(self.start_game)
+        self.ui.trashcan.clicked.connect(self.clicked_waste)
+        self.ui.recycle.clicked.connect(self.clicked_green)
 
         # Show Window
         self.setMouseTracking(True)
@@ -65,7 +75,7 @@ class Window(QMainWindow):
     def begin_app(self):
         self.ui.popup.hide()
         self.ui.window.show()
-        self.ui.text_1337.setText(f"Welcome to the game. To begin, close this popup (red button) and click begin. The timer will start\nticking away. Either an image or a description will popup in the green box. You are to decide if\nthat item should be trashed or recycled. See the Welcome Page for which button to press (hint:\nbuttons turn darker when you hover over them). Keep going until either you finish early (and\nreceieve bonus points) or the timer stops. All unfinished items will have no impact on your score\nnor accuracy. All wrong items will award 1 negative point, and all correct answers bestow 4 points.\nAccuracy matters: the final score of the round is the total score you recieved times the accuracy\npercentage. When something is wrong, this popup will be back with an explanation of what\nhappened. Have fun, and begin Round {self.round}.")  # Max 100 chars per line.
+        self.ui.text_1337.setText(f"Welcome to the game. To begin, close this popup (red button) and click begin. Either an image or a\ndescription will popup in the green box. You are to decide if that item should be trashed or\nrecycled. See the Welcome Page for which button to press (hint: buttons turn darker when you hover\nover them). All wrong items will award 1 negative point, and all correct answers bestow 4 points.\nAccuracy matters: the final score of the round is the total score you recieved times the accuracy\n(a percentage). When something is wrong, this popup will be back with an explanation of what\nhappened. Have fun, and begin Round {self.round}.")  # Max 100 chars per line.
         self.ui.popup_2.show()
         
     def hide_notes(self):
@@ -75,6 +85,7 @@ class Window(QMainWindow):
     def return_welcome(self):
         self.ui.window.hide()
         self.ui.popup.show()
+        self.ui.popup_2.hide()
 
     #def max_app(self):
     #    if not self.isMaximized():
@@ -94,8 +105,120 @@ class Window(QMainWindow):
     # to do this (expect nothing, and you shall not be surprised). Create a point system. There should be the
     # total number of points (of all rounds) and points per round (create a round system as well). Points per round
     # will be the accuracy percentage of the total number of points gained. Wrong answers lead to 1 negative point,
-    # and right answers lead to 4 positive points (MAO, let's go!). EXPLAIN THIS TO THE USER!!!
+    # and right answers lead to 4 positive points (MAO, let's go!).
     
+    def clicked_waste(self):
+        self.trash = True
+        self.recycle = False
+        
+    def clicked_green(self):
+        self.recycle = True
+        self.trash = False
+    
+    def start_game(self):
+        
+        # Game Params
+        current_round = self.round
+        right_answers = 0
+        wrong_answers = 0
+        self.round_points = 0
+        
+        # Round Params
+        items = []
+        answers = []
+        explanations = []
+            
+        # Get Each Round's Information Beforehand
+        match current_round:
+            
+            case 1:
+                self.total_points = 0
+                num_items = len(self.round_1)
+                for questions in self.round_1:
+                    items.append(questions[0])
+                    answers.append(questions[1])
+                    explanations.append(questions[2])
+                    
+            case 2:
+                num_items = len(self.round_1)
+                for questions in self.round_1:
+                    items.append(questions[0])
+                    answers.append(questions[1])
+                    explanations.append(questions[2])
+                
+            case 3:
+                num_items = len(self.round_1)
+                for questions in self.round_1:
+                    items.append(questions[0])
+                    answers.append(questions[1])
+                    explanations.append(questions[2])
+                
+            case 4:
+                num_items = len(self.round_1)
+                for questions in self.round_1:
+                    items.append(questions[0])
+                    answers.append(questions[1])
+                    explanations.append(questions[2])
+                
+            case 5:
+                num_items = len(self.round_1)
+                for questions in self.round_1:
+                    items.append(questions[0])
+                    answers.append(questions[1])
+                    explanations.append(questions[2])
+            
+        # Play The Game
+        
+        # Question By Question
+        for question in range(0, num_items):
+            
+            # Display Question
+            self.ui.item_display.setText(items[question])
+            
+            # Wait for answer to be clicked.
+            while self.trash == False and self.recycle == False:
+                pass
+                
+            # Check answer.
+            if self.trash == True:
+                answer = "trash"
+            else:
+                answer = "recycle"
+                
+            if answer != answers[question]:
+                self.round_points -= 1
+                wrong_answers += 1
+            else:
+                self.round_points += 4
+                right_answers += 1
+            
+            # Accuracy
+            accuracy = right_answers / (right_answers + wrong_answers)
+        
+        # Decide Next Round
+        if accuracy >= 0.5:
+            
+            # Proceed
+            if current_round != 5:
+                self.round += 1
+                self.ui.popup_2.setText("Congratulations! You passed. Welcome to the next round.")
+            
+            # Restart
+            else:
+                self.round = 1
+                self.ui.popup_2.setText("Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
+            
+            self.total_points += (self.round_points * accuracy)
+            self.round_points = 0
+            self.ui.stats.settext(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
+            
+        # Failed Round
+        else:
+            self.ui.popup_2.setText(f"Your accuracy was {accuracy * 100}%. You need at least 45%. The round will be restarted. Good luck.")
+           
+        # Show Popup for Information 
+        self.ui.popup_2.show()  
+            
     ##
 
 

@@ -113,9 +113,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.stats.setObjectName("stats")
-        self.timer = QtWidgets.QPushButton(self.window)
-        self.timer.setGeometry(QtCore.QRect(550, 340, 121, 71))
-        self.timer.setStyleSheet("QPushButton{\n"
+        self.timer_btn = QtWidgets.QPushButton(self.window)
+        self.timer_btn.setGeometry(QtCore.QRect(550, 340, 121, 71))
+        self.timer_btn.setStyleSheet("QPushButton{\n"
 "    border:none;\n"
 "    border-radius: 15px;\n"
 "    font: 14pt \"Modern No. 20\";\n"
@@ -125,11 +125,7 @@ class Ui_MainWindow(object):
 "QPushButton::hover{\n"
 "background-color: rgb(152, 198, 225);\n"
 "}")
-        self.timer.setObjectName("timer")
-        self.item = QtWidgets.QGraphicsView(self.window)
-        self.item.setGeometry(QtCore.QRect(160, 300, 371, 151))
-        self.item.setStyleSheet("background-color: rgb(243, 255, 235);")
-        self.item.setObjectName("item")
+        self.timer_btn.setObjectName("timer_btn")
         self.box11 = QtWidgets.QPushButton(self.window)
         self.box11.setGeometry(QtCore.QRect(240, 50, 211, 51))
         self.box11.setStyleSheet("QPushButton{\n"
@@ -197,6 +193,12 @@ class Ui_MainWindow(object):
 "    background-color: rgb(197, 202, 202);\n"
 "}")
         self.help_but.setObjectName("help_but")
+        self.item_display = QtWidgets.QLabel(self.window)
+        self.item_display.setGeometry(QtCore.QRect(160, 300, 371, 151))
+        self.item_display.setStyleSheet("background-color: rgb(243, 255, 235);\n"
+"qproperty-alignment: AlignCenter;\n"
+"font: 8pt \"Leelawadee UI\";")
+        self.item_display.setObjectName("item_display")
         self.popup = QtWidgets.QFrame(self.centralwidget)
         self.popup.setGeometry(QtCore.QRect(110, 70, 671, 381))
         self.popup.setStyleSheet("QFrame {\n"
@@ -506,11 +508,12 @@ class Ui_MainWindow(object):
 "Wrong:\n"
 "Accuracy:\n"
 "Score:"))
-        self.timer.setText(_translate("MainWindow", "Begin?"))
+        self.timer_btn.setText(_translate("MainWindow", "Begin?"))
         self.box11.setText(_translate("MainWindow", "Stats"))
         self.recycle.setText(_translate("MainWindow", "♻"))
         self.trashcan.setText(_translate("MainWindow", "🗑"))
         self.help_but.setText(_translate("MainWindow", "?"))
+        self.item_display.setText(_translate("MainWindow", "TextLabel"))
         self.help_bar.setText(_translate("MainWindow", "Welcome"))
         self.text.setText(_translate("MainWindow", "To Trash Or Not To Trash"))
         self.text_2.setText(_translate("MainWindow", "Welcome. In this game, you decide whether to throw an item in the trash or recycle it.\n"
