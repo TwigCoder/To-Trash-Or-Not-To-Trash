@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>743</width>
-    <height>1141</height>
+    <width>888</width>
+    <height>498</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QFrame" name="window">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>100</x>
       <y>20</y>
       <width>691</width>
       <height>471</height>
@@ -373,8 +373,8 @@ QPushButton::hover{
    <widget class="QFrame" name="popup">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>510</y>
+      <x>110</x>
+      <y>70</y>
       <width>671</width>
       <height>381</height>
      </rect>
@@ -792,9 +792,9 @@ Timer</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>910</y>
-      <width>511</width>
-      <height>231</height>
+      <y>60</y>
+      <width>871</width>
+      <height>331</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -838,7 +838,7 @@ QPushButton:hover{
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>511</width>
+       <width>871</width>
        <height>41</height>
       </rect>
      </property>
@@ -946,13 +946,13 @@ QPushButton:hover{
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="text_8">
+    <widget class="QPushButton" name="text_1337">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>511</width>
-       <height>171</height>
+       <width>871</width>
+       <height>271</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -965,8 +965,9 @@ QPushButton:hover{
 }</string>
      </property>
      <property name="text">
-      <string>If you are seeing this, then something went wrong. Please report this bug as
-Error 156. Thank you for your support.</string>
+      <string>If you are seeing this, then something went wrong.
+Please report this bug as Error 156.
+Thank you for your support.</string>
      </property>
     </widget>
    </widget>

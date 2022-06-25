@@ -14,11 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(743, 1141)
+        MainWindow.resize(888, 498)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.window = QtWidgets.QFrame(self.centralwidget)
-        self.window.setGeometry(QtCore.QRect(10, 20, 691, 471))
+        self.window.setGeometry(QtCore.QRect(100, 20, 691, 471))
         self.window.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -198,7 +198,7 @@ class Ui_MainWindow(object):
 "}")
         self.help_but.setObjectName("help_but")
         self.popup = QtWidgets.QFrame(self.centralwidget)
-        self.popup.setGeometry(QtCore.QRect(20, 510, 671, 381))
+        self.popup.setGeometry(QtCore.QRect(110, 70, 671, 381))
         self.popup.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -400,7 +400,7 @@ class Ui_MainWindow(object):
 "}")
         self.text_7.setObjectName("text_7")
         self.popup_2 = QtWidgets.QFrame(self.centralwidget)
-        self.popup_2.setGeometry(QtCore.QRect(10, 910, 511, 231))
+        self.popup_2.setGeometry(QtCore.QRect(10, 60, 871, 331))
         self.popup_2.setStyleSheet("QFrame {\n"
 "    background-color: rgb(247, 254, 255);\n"
 "    border-radius: 10px;\n"
@@ -422,7 +422,7 @@ class Ui_MainWindow(object):
         self.easter_egg_3.setText("")
         self.easter_egg_3.setObjectName("easter_egg_3")
         self.help_bar_2 = QtWidgets.QLabel(self.popup_2)
-        self.help_bar_2.setGeometry(QtCore.QRect(0, 0, 511, 41))
+        self.help_bar_2.setGeometry(QtCore.QRect(0, 0, 871, 41))
         self.help_bar_2.setStyleSheet("QLabel {\n"
 "    background-color: rgb(242, 250, 248);\n"
 "    border-radius: 10px;\n"
@@ -480,16 +480,16 @@ class Ui_MainWindow(object):
         self.btn_minimize_3.setText("")
         self.btn_minimize_3.setAutoDefault(False)
         self.btn_minimize_3.setObjectName("btn_minimize_3")
-        self.text_8 = QtWidgets.QPushButton(self.popup_2)
-        self.text_8.setGeometry(QtCore.QRect(0, 50, 511, 171))
-        self.text_8.setStyleSheet("QPushButton{\n"
+        self.text_1337 = QtWidgets.QPushButton(self.popup_2)
+        self.text_1337.setGeometry(QtCore.QRect(0, 50, 871, 271))
+        self.text_1337.setStyleSheet("QPushButton{\n"
 "    \n"
 "    font: 9.5pt \"Nirmala UI\";\n"
 "    border:none;\n"
 "    border-radius: 8px;    \n"
 "    background-color: #f7feff;\n"
 "}")
-        self.text_8.setObjectName("text_8")
+        self.text_1337.setObjectName("text_1337")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -530,5 +530,6 @@ class Ui_MainWindow(object):
         self.text_7.setText(_translate("MainWindow", "Begin Game\n"
 "Timer"))
         self.help_bar_2.setText(_translate("MainWindow", "Note"))
-        self.text_8.setText(_translate("MainWindow", "If you are seeing this, then something went wrong. Please report this bug as\n"
-"Error 156. Thank you for your support."))
+        self.text_1337.setText(_translate("MainWindow", "If you are seeing this, then something went wrong.\n"
+"Please report this bug as Error 156.\n"
+"Thank you for your support."))
