@@ -28,13 +28,15 @@ class Window(QMainWindow):
         self.ui.btn_close.clicked.connect(self.exit_app)
         self.ui.btn_minimize.clicked.connect(self.min_app)
         # self.ui.btn_maximize.clicked.connect(self.max_app)
+        self.ui.btn_close_popup.clicked.connect(self.begin_app)
+        self.ui.text_104.clicked.connect(self.begin_app)
 
         # Show Window
         self.setMouseTracking(True)
         self.show()
-        #self.ui.popup.show()
-        #self.ui.popup_2.hide()
-        #self.ui.window.hide()
+        self.ui.popup.show()
+        self.ui.popup_2.hide()
+        self.ui.window.hide()
 
     # Title Bar Buttons #
 
@@ -44,6 +46,10 @@ class Window(QMainWindow):
     def min_app(self):
         self.showMinimized()
         print("Passed: App successfully minimized.")
+        
+    def begin_app(self):
+        self.ui.popup.hide()
+        self.ui.window.show()
 
     #def max_app(self):
     #    if not self.isMaximized():
