@@ -36,7 +36,7 @@ class Window(QMainWindow):
         self.continue_on = False
         
         # Game Process
-        self.game_prc = threading.Thread(target=self.start_game, daemon = True)
+        game_prc = ThreadPoolExecutor(1)
         
         # Rounds dictionary (each round will have own, pairing being (image / desc., why trash / recycle))
         self.round_1 = [["item1", "trash", "reasoning"],
@@ -58,7 +58,7 @@ class Window(QMainWindow):
         self.ui.text_104.clicked.connect(self.begin_app)
         self.ui.btn_close_note.clicked.connect(self.hide_notes)
         self.ui.help_but.clicked.connect(self.return_welcome)
-        self.ui.timer_btn.clicked.connect(lambda: self.game_prc.start())
+        self.ui.timer_btn.clicked.connect(lambda: game_prc.submit(self.start_game,))
         self.ui.trashcan.clicked.connect(self.clicked_waste)
         self.ui.recycle.clicked.connect(self.clicked_green)
 
