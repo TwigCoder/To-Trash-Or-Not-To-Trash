@@ -92,6 +92,7 @@ class Window(QMainWindow):
         self.ui.timer_btn.clicked.connect(lambda: game_prc.submit(self.start_game,))
         self.ui.trashcan.clicked.connect(self.clicked_waste)
         self.ui.recycle.clicked.connect(self.clicked_green)
+        self.ui.remaining_items.hide()
 
         # Show Window
         self.setMouseTracking(True)
