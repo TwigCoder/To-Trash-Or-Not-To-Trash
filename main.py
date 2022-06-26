@@ -4,8 +4,7 @@ import math
 import PyQt5
 import sys
 import random
-import multiprocessing
-from multiprocessing import Process
+import threading
 
 # PyQt5 Imports
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -35,6 +34,9 @@ class Window(QMainWindow):
         self.recycle = False
         self.continue_on = False
         
+        # Game Process
+        self.game_prc = threading.Thread(target=self.start_game, daemon = True)
+        
         # Rounds dictionary (each round will have own, pairing being (image / desc., why trash / recycle))
         self.round_1 = [["item1", "trash", "reasoning"],
                         ["item2", "recycle", "reasoning_2"],
@@ -43,6 +45,9 @@ class Window(QMainWindow):
         # Hide Title Bar
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        
+        # ?
+        app.setQuitOnLastWindowClosed(False)
 
         # Button Functions
         self.ui.btn_close.clicked.connect(self.exit_app)
@@ -52,7 +57,7 @@ class Window(QMainWindow):
         self.ui.text_104.clicked.connect(self.begin_app)
         self.ui.btn_close_note.clicked.connect(self.hide_notes)
         self.ui.help_but.clicked.connect(self.return_welcome)
-        self.ui.timer_btn.clicked.connect(self.start_game)
+        self.ui.timer_btn.clicked.connect(lambda: self.game_prc.start())
         self.ui.trashcan.clicked.connect(self.clicked_waste)
         self.ui.recycle.clicked.connect(self.clicked_green)
 
@@ -177,14 +182,18 @@ class Window(QMainWindow):
             self.ui.item_display.setText(items[question])
             
             # Wait for answer to be clicked.
-            #while self.trash == False and self.recycle == False:
-            #    pass
+            while self.trash == False and self.recycle == False:
+                pass
                 
             # Check answer.
             if self.trash == True:
                 answer = "trash"
             else:
                 answer = "recycle"
+                
+            # Reset Variables
+            self.trash = False
+            self.recycle = False
                 
             if answer != answers[question]:
                 self.round_points -= 1
@@ -220,6 +229,8 @@ class Window(QMainWindow):
         # Show Popup for Information 
         self.ui.item_display.setText(f"Round {self.round}")
         self.ui.popup_2.show()
+        
+        # self.game_prc.join()
             
     ##
 
