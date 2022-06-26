@@ -38,10 +38,12 @@ class Window(QMainWindow):
         # Game Process
         game_prc = ThreadPoolExecutor(1)
         
-        # Rounds dictionary (each round will have own, pairing being (image / desc., why trash / recycle))
-        self.round_1 = [["item1", "trash", "reasoning"],
-                        ["item2", "recycle", "reasoning_2"],
-                        ["item3", "trash", "reasoning"]]
+        # Rounds dictionary (each round will have own, pairing being (image / desc., why trash / recycle)) (44 chars / line)
+        self.round_1 = [["Welcome. This is an introduction.\nEasy points, right? Click Trash!", "trash", "It said to click trash..."],
+                        ["Now click Recycle!", "recycle", "It said to click recycle..."],
+                        ["Click Trash once more!", "recycle", "Just got siked! This popup will explain why you got something wrong.\nDon't worry; this will be the only \"jk\" in the game!"],
+                        ["Congratulations. You made it!\nClick Recycle to finish off.\nIf you do not, you will not pass.\nYou need at least a 60%.", "recycle", "It said to click recycle...please read..."],
+                        ]
 
         # Hide Title Bar
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -73,7 +75,7 @@ class Window(QMainWindow):
     # Title Bar Buttons #
 
     def exit_app(self):
-        sys.exit()
+        sys.exit()  # TODO Cleaner way to end program? Sometimes lags LOL
 
     def min_app(self):
         self.showMinimized()
@@ -181,6 +183,8 @@ class Window(QMainWindow):
         # Question By Question
         for question in range(0, num_items):
             
+            self.ui.stats.setText(f"Round: {self.round}\nCorrect: {right_answers}\nWrong: {wrong_answers}\nScore: {self.round_points}")
+            
             # Display Question
             self.ui.item_display.setText(items[question])
             
@@ -201,13 +205,18 @@ class Window(QMainWindow):
             if answer != answers[question]:
                 self.round_points -= 1
                 wrong_answers += 1
+                self.ui.text_1337.setText(explanations[question])
+                self.ui.popup_2.show()
             else:
                 self.round_points += 4
-                right_answers += 1
+                right_answers += 1    
             
+            # Display User Statistics
+            self.ui.stats.setText(f"Round: {self.round}\nCorrect: {right_answers}\nWrong: {wrong_answers}\nScore: {self.round_points}")
+                        
         # Accuracy
         accuracy = right_answers / (right_answers + wrong_answers)
-        
+
         # Decide Next Round
         if accuracy >= 0.6:
             
@@ -221,18 +230,23 @@ class Window(QMainWindow):
                 self.round = 1
                 self.ui.text_1337.setText("🎉 Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
             
-            self.total_points += round((self.round_points * accuracy))
+            self.total_points += (self.round_points * accuracy)
             self.ui.stats.setText(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
             
         # Failed Round
         else:
-            self.ui.text_1337.setText(f"Your accuracy was {round(accuracy, 2) * 100}%. You need at least 60%.\nThe round will be restarted. Good luck.")
+            self.ui.text_1337.setText(f"Your accuracy was less than 60%, the minimum.\nThe round will be restarted. Good luck.")
         
         self.round_points = 0
         
         # Show Popup for Information 
         self.ui.item_display.setText(f"Round {self.round}")
         self.ui.popup_2.show()
+        
+        # Reset Variables
+        right_answers = 0
+        wrong_answers = 0
+        accuracy = 0
         
         self.ui.timer_btn.show()
         
