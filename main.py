@@ -5,6 +5,7 @@ import PyQt5
 import sys
 import random
 import threading
+from concurrent.futures import ThreadPoolExecutor
 
 # PyQt5 Imports
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -123,6 +124,8 @@ class Window(QMainWindow):
     
     def start_game(self):
         
+        self.ui.timer_btn.hide()
+            
         # Game Params
         current_round = self.round
         right_answers = 0
@@ -219,19 +222,22 @@ class Window(QMainWindow):
                 self.ui.text_1337.setText("🎉 Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
             
             self.total_points += round((self.round_points * accuracy))
-            self.round_points = 0
             self.ui.stats.setText(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
             
         # Failed Round
         else:
             self.ui.text_1337.setText(f"Your accuracy was {round(accuracy, 2) * 100}%. You need at least 60%.\nThe round will be restarted. Good luck.")
-           
+        
+        self.round_points = 0
+        
         # Show Popup for Information 
         self.ui.item_display.setText(f"Round {self.round}")
         self.ui.popup_2.show()
         
+        self.ui.timer_btn.show()
+        
         # self.game_prc.join()
-            
+                
     ##
 
 
