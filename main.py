@@ -6,6 +6,7 @@ import sys
 import random
 import threading
 from concurrent.futures import ThreadPoolExecutor
+import time
 
 # PyQt5 Imports
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -44,6 +45,34 @@ class Window(QMainWindow):
                         ["Click Trash once more!", "recycle", "Just got siked! This popup will explain why you got something wrong.\nDon't worry; this will be the only \"jk\" in the game!"],
                         ["Congratulations. You made it!\nClick Recycle to finish off.\nIf you do not, you will not pass.\nYou need at least a 60%.", "recycle", "It said to click recycle...please read..."],
                         ]
+        
+        self.round_2 = [["Your backpack from kindergarden.", "recycle", "Backpacks are recyclable!\nNote that only specific centers accept them."],
+                        ["The leftover burrito on your floor.", "trash", "Food is not recyclable. It is compostable, though!\nTry that instead."],
+                        ["The zipper of your sister's hoodie.", "recycle", ""],
+                        ["A drawing on paper you tore\nto minuscule pieces.", "trash", "Shredded paper can sometimes be recyclable; however, the smaller it is, the less it can be.\nThis is because paper fibers get shortened every time they are recycled, until they are downcycled.\nTorn paper has very short fibers."],
+                        ["Holiday card your aunt gifted you on\nCinco De Mayo.", "recycle", "Holiday cards are made of paper, and are not contaminated, so recycle them!\nAny electronic part inside may also be recyclable."],
+                        ["Aerosol can containing hair spray inside.", "trash", "The can is recyclable, but if ANYTHING is inside, even whipped cream,\nthen recycling programs won't accept it. Use the produce inside completely."]]
+        
+        self.round_3 = [["Your mint-flavored\nColgate toothpaste tube.", "recycle", "Terracycle accepts Colgate toothbrushes and recycles them.\nWhat a great partnership!"],
+                        ["The bubble wrap around\nyour Amazon package.", "trash", "Bubble wrap is made of Type #4 plastic.\nType #2 and #4 plastics can tangle with other recyclables and damage equipment.\n So do not recycle them!"],
+                        ["Sheet of multicolored glass.", "recycle", "Glass is a recyclable object. The type and color does not cause an issue."],
+                        ["A new type of bioplastic - PEF.", "recycle", "Bioplastics, in general, are not recyclable.\nHowever, a new type has been created - PEF - which is recyclable."],
+                        ["The broken glass of your window.", "trash", "Although glass is recyclable, broken shards can harm handlers, so keep them out!"],
+                        ["The oil of your car engine.", "recycle", "Oil is recyclable!\nThis is the best option, for dumping it can contaminate the water supply.\nOnly specific centers accept it, so check."]]
+        
+        self.round_4 = [["Paper that you used to wax.", "trash", "Due to the wax on the paper, it is considered mixed paper, and is not recyclable."],
+                        ["Pizza box,\nwith the remains scraped away.", "recycle", "Although the box is contaminated, we can easily remove the food and recycle.\nGrease is not a major problem."],
+                        ["Robot battery containing 12 volts.", "recycle", "All batteries are recyclable!\nRemember to tape their ends when the volt is greater than 9, however..."],
+                        ["Paper you accidently spilled water on.", "trash", "Water can cause the paper fibers to shorten and degrade,\nand wet paper may cause clogs to form."],
+                        ["Aluminum foil with no food residue.", "recycle", "As long as the alumininum is not contaminiated, this foil is recyclable."],
+                        ["Those receipts from your\nmall shopping spree.", "trash", "Receipts are printed on thermal paper, which contains BPA,\nmaking them not recyclable nor compostable."]]
+        
+        self.round_5 = [["Paper plates from your birthday party,\nstained with food and grease.", "trash", "Although paper plates are recyclable, this is only when they are not contaminated."],
+                        ["The license plate of your\ngrandfather's car.", "recycle", "You surrender your old license plate when recieveing a new one.\nIf not, the scrap metal can go to good use."],
+                        ["The stickers on your laptop.", "trash", "The adhesive side of the sticker can harm recycling machines, so don't do it!"],
+                        ["Hard drive of your old Toshiba laptop.", "recycle", "Although difficult, these drives are recyclable.\nAfter years of use and new technology, you won't need them!\nFind a center near you."],
+                        ["A blunt knife that you have now replaced.", "recycle", "Knives are made of scrap metal that have numerous uses, making them recyclable."],
+                        ["Your strawberry yogurt cup from Publix.", "recycle", "Although they are made of Plastic #5, these cups are recyclable.\nThe process is costly, so some centers do not.\nBe sure to check!"]]
 
         # Hide Title Bar
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -75,7 +104,7 @@ class Window(QMainWindow):
     # Title Bar Buttons #
 
     def exit_app(self):
-        sys.exit()  # TODO Cleaner way to end program? Sometimes lags LOL
+        sys.exit()  # TODO Cleaner way to end program? CANT END MIDGAME BECAUSE NOT DAEMON (ALSO DONT EVEN TRY TOUCHING THE THREADS THEY MAGICALLY WORK APPRECIATE IT OK)
 
     def min_app(self):
         self.showMinimized()
@@ -151,29 +180,29 @@ class Window(QMainWindow):
                     explanations.append(questions[2])
                     
             case 2:
-                num_items = len(self.round_1)
-                for questions in self.round_1:
+                num_items = len(self.round_2)
+                for questions in self.round_2:
                     items.append(questions[0])
                     answers.append(questions[1])
                     explanations.append(questions[2])
                 
             case 3:
-                num_items = len(self.round_1)
-                for questions in self.round_1:
+                num_items = len(self.round_3)
+                for questions in self.round_3:
                     items.append(questions[0])
                     answers.append(questions[1])
                     explanations.append(questions[2])
                 
             case 4:
-                num_items = len(self.round_1)
-                for questions in self.round_1:
+                num_items = len(self.round_4)
+                for questions in self.round_4:
                     items.append(questions[0])
                     answers.append(questions[1])
                     explanations.append(questions[2])
                 
             case 5:
-                num_items = len(self.round_1)
-                for questions in self.round_1:
+                num_items = len(self.round_5)
+                for questions in self.round_5:
                     items.append(questions[0])
                     answers.append(questions[1])
                     explanations.append(questions[2])
@@ -213,7 +242,7 @@ class Window(QMainWindow):
             
             # Display User Statistics
             self.ui.stats.setText(f"Round: {self.round}\nCorrect: {right_answers}\nWrong: {wrong_answers}\nScore: {self.round_points}")
-                        
+        
         # Accuracy
         accuracy = right_answers / (right_answers + wrong_answers)
 
@@ -230,7 +259,7 @@ class Window(QMainWindow):
                 self.round = 1
                 self.ui.text_1337.setText("🎉 Congrats! You finished! 🎉\nWith this knowledge, you can help the world. If you wish, you can restart at Round 1.")
             
-            self.total_points += (self.round_points * accuracy)
+            self.total_points += round(self.round_points * accuracy)
             self.ui.stats.setText(f"🎉🎉🎉\nTotal Points: {self.total_points}\n🎉🎉🎉")
             
         # Failed Round
